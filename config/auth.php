@@ -1,5 +1,8 @@
 <?php
 
+use App\Shop\Customers\Customer;
+use App\Shop\Employees\Employee;
+
 return [
 
     /*
@@ -41,6 +44,16 @@ return [
             'provider' => 'users',
         ],
 
+        'checkout' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -68,13 +81,13 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => \App\Shop\Customers\Customer::class,
+            'model' => Customer::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+         'admin' => [
+             'driver' => 'eloquent',
+             'model' => Employee::class,
+         ],
     ],
 
     /*
@@ -99,6 +112,13 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+
+        'admin' => [
+            'provider' => 'admin',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ]
     ],
 
     /*
