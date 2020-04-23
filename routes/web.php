@@ -19,4 +19,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('admin/login', 'Admin\LoginController@showLoginForm');
+Route::post('admin/login', 'Admin\LoginController@login')->name('admin.login');
+Route::get('admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
+    Route::resource('employees', 'Admin\Employees\EmployeeController');
+    Route::resource('customers', 'Admin\Customers\CustomerController');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
