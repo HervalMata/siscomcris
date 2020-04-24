@@ -2,7 +2,8 @@
 
 namespace App\Shop\Customers;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Shop\Addresses\Address;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -31,4 +32,12 @@ class Customer extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * @return HasMany
+     */
+    public function address()
+    {
+        return $this->hasMany(Address::class);
+    }
 }

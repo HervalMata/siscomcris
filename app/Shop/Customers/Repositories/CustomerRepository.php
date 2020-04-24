@@ -4,14 +4,17 @@
 namespace App\Shop\Customers\Repositories;
 
 
+use App\Shop\Addresses\Address;
 use App\Shop\Base\BaseRepository;
 use App\Shop\Customers\Customer;
 use App\Shop\Customers\Exceptions\CustomerNotFoundException;
 use App\Shop\Customers\Repositories\Interfaces\CustomerRepositoryInterface;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Collection;
 
 class CustomerRepository extends BaseRepository implements CustomerRepositoryInterface
 {
+    use AddressTransformable;
 
     /**
      * CustomerRepository constructor.
@@ -80,5 +83,25 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
     public function deleteCustomer(Customer $customer): bool
     {
         return $this->delete($customer->id);
+    }
+
+    /**
+     * @param Address $address
+     * @return Address
+     */
+    public function attachAddress(Address $address): Address
+    {
+        return $this->model->address()->save($address);
+    }
+
+    /**
+     * @param Customer $customer
+     * @return Collection
+     */
+    public function findAddresses(Customer $customer): Collection
+    {
+        return collect($customer->address)->map(function (Address $address) {
+            return $this->transformAddress($address);
+        });
     }
 }

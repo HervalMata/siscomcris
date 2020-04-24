@@ -1,10 +1,10 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+/** @var Factory $factory */
 
-use App\Shop\Employees\Employee;
+use App\Shop\Addresses\Address;
 use Faker\Generator as Faker;
-use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factory;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +17,16 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(Employee::class, function (Faker $faker) {
-    static $password;
+$factory->define(Address::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ? : $password = bcrypt('secret'), // secret
-        'remember_token' => Str::random(10),
+        'alias' => $faker->word,
+        'address_1' => $faker->sentence,
+        'address_2' => $faker->sentence,
+        'zip' => 1101,
+        'city_id' => 1,
+        'province_id' => 1,
+        'country_id' => 160,
+        'customer_id' => 1,
+        'status' => 1
     ];
 });
