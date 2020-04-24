@@ -72,7 +72,7 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
         try {
             return $this->findOneOrFail($id);
         } catch (ModelNotFoundException $e) {
-            throw new CustomerNotFoundException;
+            throw new CustomerNotFoundException($e->getMessage());
         }
     }
 
