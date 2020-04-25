@@ -32,6 +32,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('countries', 'Admin\Countries\CountryController');
     Route::resource('countries.provinces', 'Admin\Provinces\ProvinceController');
     Route::resource('countries.provinces.cities', 'Admin\Cities\CityController');
+    Route::get('remove-image-product', 'Admin\Products\ProductController@removeImage')->name('product.remove.image');
+    Route::resource('products', 'Admin\Products\ProductController');
+    Route::get('remove-image-category', 'Admin\Categories\CategorytController@removeImage')->name('category.remove.image');
+    Route::resource('categories', 'Admin\Categories\CategorytController');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get("category/{name}", 'Front\Categories\CategoryController')->name('front.category.slug');
+Route::get("{product}", 'Front\Products\ProductController')->name('front.get.product');
+
