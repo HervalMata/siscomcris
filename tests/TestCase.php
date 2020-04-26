@@ -39,6 +39,16 @@ abstract class TestCase extends BaseTestCase
      * @var Collection|Model
      */
     protected $customer;
+    /**
+     * @var Country
+     */
+    protected $country;
+    protected $province;
+    protected $city;
+    /**
+     * @var Address
+     */
+    protected $address;
 
     /**
      *
