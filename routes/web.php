@@ -40,6 +40,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get("category/{name}", 'Front\Categories\CategoryController')->name('front.category.slug');
-Route::get("{product}", 'Front\Products\ProductController')->name('front.get.product');
+Route::get("category/{name}", 'Front\Categories\CategoryController@getCategory')->name('front.category.slug');
+Route::get("{product}", 'Front\Products\ProductController@getCategory')->name('front.get.product');
 
