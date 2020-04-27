@@ -13,7 +13,7 @@ use App\Shop\Base\Interfaces\BaseRepositoryInterface;
 use App\Shop\Categories\Category;
 use App\Shop\Products\Product;
 
-interface CategotyRepositoryInterface extends BaseRepositoryInterface
+interface CategoryRepositoryInterface extends BaseRepositoryInterface
 {
     public function ListCategories(string $order = 'id', string $sort = 'desc') : array;
 

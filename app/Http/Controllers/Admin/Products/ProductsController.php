@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Products;
 
 use App\Http\Controllers\Controller;
-use App\Shop\Categories\Repositories\Interfaces\CategotyRepositoryInterface;
+use App\Shop\Categories\Repositories\Interfaces\CategoryRepositoryInterface;
 use App\Shop\Products\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Shop\Products\Repositories\ProductRepository;
 use App\Shop\Products\Requests\CreateProductRequest;
@@ -18,7 +18,7 @@ class ProductsController extends Controller
      */
     private $productRepository;
     /**
-     * @var CategotyRepositoryInterface
+     * @var CategoryRepositoryInterface
      */
     private $categotyRepository;
 
@@ -26,7 +26,7 @@ class ProductsController extends Controller
      * ProductsController constructor.
      * @param ProductRepositoryInterface $productRepository
      */
-    public function __construct(ProductRepositoryInterface $productRepository, CategotyRepositoryInterface $categotyRepository)
+    public function __construct(ProductRepositoryInterface $productRepository, CategoryRepositoryInterface $categotyRepository)
     {
         $this->productRepository = $productRepository;
         $this->categotyRepository = $categotyRepository;

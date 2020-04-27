@@ -14,7 +14,7 @@ use App\Shop\Base\BaseRepository;
 use App\Shop\Categories\Category;
 use App\Shop\Categories\Exceptions\CategoryInavalidArgumentException;
 use App\Shop\Categories\Exceptions\CategoryNotFoundException;
-use App\Shop\Categories\Repositories\Interfaces\CategotyRepositoryInterface;
+use App\Shop\Categories\Repositories\Interfaces\CategoryRepositoryInterface;
 use App\Shop\Products\Exceptions\ProductTransformable;
 use App\Shop\Products\Product;
 use Illuminate\Database\Eloquent\Model;
@@ -23,7 +23,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
-class CategoryRepository extends BaseRepository implements CategotyRepositoryInterface
+class CategoryRepository extends BaseRepository implements CategoryRepositoryInterface
 {
     use ProductTransformable;
     use UploadableTrait;

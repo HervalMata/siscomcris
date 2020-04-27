@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Categories;
 
 use App\Http\Controllers\Controller;
 use App\Shop\Categories\Repositories\CategoryRepository;
-use App\Shop\Categories\Repositories\Interfaces\CategotyRepositoryInterface;
+use App\Shop\Categories\Repositories\Interfaces\CategoryRepositoryInterface;
 use App\Shop\Categories\Requests\CreateCategoryRequest;
 use App\Shop\Categories\Requests\UpdateCategoryRequest;
 use Illuminate\Http\RedirectResponse;
@@ -14,15 +14,15 @@ use Illuminate\Http\Response;
 class CategoryController extends Controller
 {
     /**
-     * @var CategotyRepositoryInterface
+     * @var CategoryRepositoryInterface
      */
     private $categotyRepository;
 
     /**
      * CategoryController constructor.
-     * @param CategotyRepositoryInterface $categotyRepository
+     * @param CategoryRepositoryInterface $categotyRepository
      */
-    public function __construct(CategotyRepositoryInterface $categotyRepository)
+    public function __construct(CategoryRepositoryInterface $categotyRepository)
     {
         $this->categotyRepository = $categotyRepository;
     }

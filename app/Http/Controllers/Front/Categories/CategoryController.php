@@ -4,22 +4,22 @@ namespace App\Http\Controllers\Front\Categories;
 
 use App\Http\Controllers\Controller;
 use App\Shop\Categories\Repositories\CategoryRepository;
-use App\Shop\Categories\Repositories\Interfaces\CategotyRepositoryInterface;
+use App\Shop\Categories\Repositories\Interfaces\CategoryRepositoryInterface;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
 
 class CategoryController extends Controller
 {
     /**
-     * @var CategotyRepositoryInterface
+     * @var CategoryRepositoryInterface
      */
     private $categotyRepository;
 
     /**
      * CategoryController constructor.
-     * @param CategotyRepositoryInterface $categotyRepository
+     * @param CategoryRepositoryInterface $categotyRepository
      */
-    public function __construct(CategotyRepositoryInterface $categotyRepository)
+    public function __construct(CategoryRepositoryInterface $categotyRepository)
     {
         $this->categotyRepository = $categotyRepository;
     }
