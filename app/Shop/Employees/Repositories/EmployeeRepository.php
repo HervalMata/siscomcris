@@ -67,7 +67,7 @@ class EmployeeRepository extends BaseRepository implements EmployeeRepositoryInt
     public function findEmployeeById(int $id): Employee
     {
         try {
-            return $this->findOneOrFail($id);
+            return $this->findOrFail($id);
         } catch (ModelNotFoundException $e) {
             throw new EmployeeNotFoundException;
         }

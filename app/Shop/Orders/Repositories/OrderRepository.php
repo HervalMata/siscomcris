@@ -26,6 +26,7 @@ use App\Shop\PaymentMethods\PaymentMethod;
 use App\Shop\PaymentMethods\Repositories\PaymentMethodRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Collection;
 
 class OrderRepository extends BaseRepository implements OrderRepositoryInterface
 {
@@ -72,7 +73,7 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     public function findOrderById(int $id): Order
     {
         try {
-            return $this->findOneOrFail($id);
+            return $this->findOrFail($id);
         } catch (ModelNotFoundException $e) {
             throw new OrderNotFoundException($e->getMessage());
         }
@@ -81,9 +82,9 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     /**
      * @param string $order
      * @param string $sort
-     * @return array
+     * @return array|Collection
      */
-    public function ListOrders(string $order = 'id', string $sort = 'desc'): array
+    public function ListOrders(string $order = 'id', string $sort = 'desc')
     {
         $orders = $this->model->orderBy($order, $sort)->get();
         return collect($orders)->map(function ($order) {

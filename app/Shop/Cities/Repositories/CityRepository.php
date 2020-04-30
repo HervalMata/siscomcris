@@ -34,7 +34,7 @@ class CityRepository extends BaseRepository implements CityRepositoryInterface
     public function findCityById(int $id)
     {
         try {
-            return $this->findOneOrFail($id);
+            return $this->findOrFail($id);
         } catch (ModelNotFoundException $e) {
             throw new CityNotFoundException($e->getMessage());
         }

@@ -84,7 +84,7 @@ class AddressRepository extends BaseRepository implements AddressRepositoryInter
     public function findAddressById(int $id): Address
     {
         try {
-            return $this->findOneOrFail($id);
+            return $this->findOrFail($id);
         } catch (ModelNotFoundException $e) {
             throw new AddressNotFoundException($e->getMessage());
         }

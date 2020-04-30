@@ -10,6 +10,7 @@ namespace App\Shop\Provinces\Repositories;
 
 
 use App\Shop\Base\BaseRepository;
+use App\Shop\Provinces\Exceptions\ProvinceNotFoundException;
 use App\Shop\Provinces\Province;
 use App\Shop\Provinces\Repositories\Interfaces\ProvinceRepositoryInterface;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -57,7 +58,7 @@ class ProvinceRepository extends BaseRepository implements ProvinceRepositoryInt
     public function findProvinceById(int $id): Province
     {
         try {
-            return $this->findOneOrFail($id);
+            return $this->findOrFail($id);
         } catch (ModelNotFoundException $e) {
             throw new ProvinceNotFoundException($e->getMessage());
         }

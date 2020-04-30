@@ -107,7 +107,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function findProductById(int $id): Product
     {
         try {
-            return $this->transformProduct($this->findOneOrFail($id));
+            return $this->transformProduct($this->findOrFail($id));
         } catch (ModelNotFoundException $e) {
             throw new ProductNotFoundException($e->getMessage());
         }

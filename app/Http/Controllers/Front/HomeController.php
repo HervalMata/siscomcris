@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
+use App\Http\Controllers\Controller;
 use App\Shop\Categories\Repositories\Interfaces\CategoryRepositoryInterface;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\Factory;

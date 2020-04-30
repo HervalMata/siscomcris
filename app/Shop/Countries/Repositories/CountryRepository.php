@@ -11,6 +11,8 @@ namespace App\Shop\Countries\Repositories;
 
 use App\Shop\Base\BaseRepository;
 use App\Shop\Countries\Country;
+use App\Shop\Countries\Exceptions\CountryInvalidArgumentException;
+use App\Shop\Countries\Exceptions\CountryNotFoundException;
 use App\Shop\Countries\Repositories\Interfaces\CountryRepositoryInterface;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
@@ -67,7 +69,7 @@ class CountryRepository extends BaseRepository implements CountryRepositoryInter
     public function findCountryById(int $id): Country
     {
         try {
-            return $this->findOneOrFail($id);
+            return $this->findOrFail($id);
         } catch (ModelNotFoundException $e) {
             throw new CountryNotFoundException($e->getMessage());
         }

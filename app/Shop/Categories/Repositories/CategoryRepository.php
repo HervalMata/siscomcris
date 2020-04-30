@@ -100,7 +100,7 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
     public function findCategoryById(int $id): Category
     {
         try {
-            return $this->findOneOrFail($id);
+            return $this->findOrFail($id);
         } catch (ModelNotFoundException $e) {
             throw new CategoryNotFoundException($e->getMessage());
         }

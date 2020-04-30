@@ -6,7 +6,7 @@
  * Time: 17:34
  */
 
-namespace App\Shop\OrderStatus\Repositories;
+namespace App\Shop\OrderStatuses\Repositories;
 
 
 use App\Shop\Base\BaseRepository;
@@ -63,7 +63,7 @@ class OrderStatusRepository extends BaseRepository implements OrderStatusReposit
     public function findOrderStatusById(int $id): OrderStatus
     {
         try {
-            return $this->findOneOrFail($id);
+            return $this->findOrFail($id);
         } catch (ModelNotFoundException $e) {
             throw new OrderStatusNotFoundException($e->getMessage());
         }

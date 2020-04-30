@@ -51,7 +51,7 @@
                     <a class="navbar-brand" href="{{ route('home') }}">{{ config('app.name') }}</a>
                 </div>
 
-                @include('layouts.front.header-cart')
+{{--                @include('layouts.front.header-cart')--}}
             </div>
         </nav>
     </header>

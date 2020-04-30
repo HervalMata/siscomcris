@@ -9,6 +9,7 @@ use App\Shop\Base\BaseRepository;
 use App\Shop\Customers\Customer;
 use App\Shop\Customers\Exceptions\CustomerNotFoundException;
 use App\Shop\Customers\Repositories\Interfaces\CustomerRepositoryInterface;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Collection;
 
@@ -70,7 +71,7 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
     public function findCustomerById(int $id): Customer
     {
         try {
-            return $this->findOneOrFail($id);
+            return $this->findOrFail($id);
         } catch (ModelNotFoundException $e) {
             throw new CustomerNotFoundException($e->getMessage());
         }
@@ -87,9 +88,9 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
 
     /**
      * @param Address $address
-     * @return Address
+     * @return Address|bool|false|Model
      */
-    public function attachAddress(Address $address): Address
+    public function attachAddress(Address $address)
     {
         return $this->model->address()->save($address);
     }

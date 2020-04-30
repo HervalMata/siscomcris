@@ -62,7 +62,7 @@ class CourrierRepository extends BaseRepository implements CourrierRepositoryInt
     public function findCourrierById(int $id): Courrier
     {
         try {
-            return $this->findOneOrFail($id);
+            return $this->findOrFail($id);
         } catch (ModelNotFoundException $e) {
             throw new CourrierNotFoundException($e->getMessage());
         }

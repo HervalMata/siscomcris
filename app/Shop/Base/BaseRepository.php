@@ -68,9 +68,9 @@ abstract class BaseRepository implements BaseRepositoryInterface
      * @return mixed
      * @throws ModelNotFoundException
      */
-    public function findOneOrFail(int $id)
+    public function findOrFail(int $id)
     {
-        return $this->model->findOneOrFail($id);
+        return $this->model->findOrFail($id);
     }
 
     /**

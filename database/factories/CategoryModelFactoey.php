@@ -11,7 +11,10 @@ $factory->define(Category::class, function (Faker $faker) {
     $name = $faker->unique()->randomElement([
         'Laços',
         'Tiaras',
-        'Viseiras'
+        'Viseiras',
+        'Bolsas',
+        'Colar',
+        'Pulseiras'
     ]);
 
     return [

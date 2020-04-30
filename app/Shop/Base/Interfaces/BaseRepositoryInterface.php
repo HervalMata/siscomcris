@@ -14,7 +14,7 @@ interface BaseRepositoryInterface
 
     public function find(int $id);
 
-    public function findOneOrFail(int $id);
+    public function findOrFail(int $id);
 
     public function findBy(array $data);
 

@@ -71,7 +71,7 @@ class PaymentMethodRepository extends BaseRepository implements PaymentMethodRep
     public function findPaymentMethodById(int $id): PaymentMethod
     {
         try {
-            return $this->findOneOrFail($id);
+            return $this->findOrFail($id);
         } catch (ModelNotFoundException $e) {
             throw new PaymentMethodNotFoundException($e->getMessage());
         }
